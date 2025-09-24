@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Sweet Wishes 💌</title>
+  <link rel="stylesheet" href="../css/style-ucapan.css">
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1 id="title">💖 Happy Birthday Babyboo! 💖</h1>
+    <p id="message" class="message"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Floating hearts
+    const heartsContainer = document.querySelector('.hearts');
+    for(let i=0;i<25;i++){
+      let heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 90 + "%";
+      heartsContainer.appendChild(heart);
+    }
+
+    // Floating sparkles
+    for(let i=0;i<20;i++){
+      let star = document.createElement('div');
+      star.classList.add('sparkle');
+      star.style.left = Math.random()*100 + "%";
+      star.style.top = Math.random()*100 + "%";
+      document.body.appendChild(star);
+    }
+
+    // Typing effect (backticks handle emoji + line breaks)
+    const message = `Happy Birthdayy babyboo !! ❤️ semogaa panjang umur dimurahkan rezeki selaluu 🥰
+Woaa babyyboo orangg daa besarr hehe, daa boleh kawen dah ni 🤣 dengar cakapp mama abah okayy?
+Jangannn selalu melawan hehe. Babyy orangg nakk babyy tauu orangg bangga sangat dengan baby yangg sekarang!!
+Daa bnyak berubahh dari sebelum ni hehe, kejar masa depan okay? Orangg sentiasaa ada, support dengan apa yang baby buattt 💋
+Baby thankyouu tauu daaa jadi yangg terbaikk ☹️❤️ selaluu buat orang happy selalu layann perangai buruk orang ni hehe 😂
+Orang bersyukur gilaa dapat baby, baby selalu ada dengan orangg, support orangg, dengaq semuaa yang problemm orang,
+thankyouu babyy kalau tkdk baby mungkin orang dah jadi shrek hm 😔❤️
+Orang nak mintak maaf sebab belum jadi yang terbaik untuk baby , babyy jangan berubahh okayy?
+Sayang orang mcm ni sampai bilaa bilaa tau 🥰 kitaa jaga relayy ni smpai bilaa ii tauuu!
+Sayangggg babyy sangat sangattt!! Happy Birthday againn loveee! ❤️ Enjoyyy urr dayyy :3`;
+
+    const messageEl = document.getElementById('message');
+    let i = 0;
+    function typing() {
+      if(i < message.length){
+        if(message[i]==="\n"){
+          messageEl.innerHTML += "<br>";
+        } else {
+          messageEl.innerHTML += message[i];
+        }
+        i++;
+        setTimeout(typing, 50);
+      } else {
+        // Extra confetti burst
+        for(let j=0;j<50;j++){
+          confetti({
+            particleCount: 8,
+            spread: 100,
+            origin: { x: Math.random(), y: Math.random() - 0.2 }
+          });
+        }
+        setTimeout(()=>{ window.location.href="gallery.html"; },5000);
+      }
+    }
+    typing();
+  </script>
+</body>
+</html>

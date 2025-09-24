@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff);
+  color: #ff4d88;
+  overflow: auto; /* scrollable vertical & horizontal */
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Container simple zoom with hover */
+.container {
+  display: inline-block;
+  padding: 20px;
+  margin: 50px auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255,182,193,0.6);
+  transition: transform 5s ease-in-out;
+}
+
+.container:hover {
+  transform: scale(1.02); /* slow zoom on hover, no keyframes */
+}
+
+/* Title */
+h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #ff1a75;
+  text-shadow: 0 0 10px #ff80aa;
+}
+
+/* Gallery image */
+.gallery img {
+  width: 100%;
+  height: 50%;
+  max-width: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(255,0,100,0.2);
+  transition: transform 1.5s ease, box-shadow 1.5s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(255,0,100,0.4);
+}
+
+/* Floating hearts */
+.hearts .heart {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #ff6699;
+  transform: rotate(45deg);
+  bottom: -20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+.hearts .heart::before,
+.hearts .heart::after {
+  content:"";
+  position:absolute;
+  width:15px;
+  height:15px;
+  background:#ff6699;
+  border-radius:50%;
+}
+.hearts .heart::before { top:-7.5px; left:0; }
+.hearts .heart::after { left:7.5px; top:0; }
+
+/* simple float up without keyframes complication */
+@keyframes floatUp {
+  0% { bottom: -20px; opacity: 0.8; }
+  100% { bottom: 600px; opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff5ee;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleMove 3s linear infinite;
+}
+
+@keyframes sparkleMove {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-50px) scale(1.5); }
+  100% { transform: translateY(0) scale(1); }
+}

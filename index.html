@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sayang 💖</title>
+  <link rel="stylesheet" href="../css/style-index.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="intro-text">Happy Birthday Babyboo 💕</h1>
+  </div>
+
+  <!-- Confetti script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Confetti animation
+    setInterval(function() {
+      confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 } });
+      confetti({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1 } });
+    }, 300);
+
+    // Transition to ucapan page
+    setTimeout(() => {
+      window.location.href = "ucapan.html";
+    }, 8000);
+  </script>
+</body>
+</html>

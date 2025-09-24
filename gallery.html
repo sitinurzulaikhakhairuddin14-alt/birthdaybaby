@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery 💖</title>
+  <link rel="stylesheet" href="../css/style-gallery.css">
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1>Untuk Baby 💖</h1>
+    <div class="gallery">
+      <img src="../image/gambar1.jpg" alt="My Special Image">
+    </div>
+  </div>
+
+  <!-- Magical JS Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Floating hearts
+    const hearts = document.querySelector('.hearts');
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 90 + "%";
+      hearts.appendChild(heart);
+    }
+
+    // Floating sparkles
+    for (let i = 0; i < 20; i++) {
+      const star = document.createElement('div');
+      star.className = 'sparkle';
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      document.body.appendChild(star);
+    }
+
+    // Confetti every few seconds
+    setInterval(() => {
+      confetti({
+        particleCount: 30,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    }, 4000);
+  </script>
+</body>
+</html>

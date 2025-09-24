@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe6f0, #fff);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 55px;
+  color: #ff1a75;
+  text-shadow:
+    0 0 5px #ffb6c1,
+    0 0 10px #ff80aa,
+    0 0 15px #ff4d88,
+    0 0 20px #ff1a75;
+  animation: fadeBounce 2s ease-in-out forwards, sparkle 2s infinite alternate;
+}
+
+@keyframes fadeBounce {
+  0% { opacity: 0; transform: translateY(-50px); }
+  50% { opacity: 1; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkle {
+  0% { text-shadow: 0 0 5px #ffb6c1,0 0 10px #ff80aa,0 0 15px #ff4d88,0 0 20px #ff1a75; }
+  50% { text-shadow: 0 0 10px #ffb6c1,0 0 20px #ff80aa,0 0 30px #ff4d88,0 0 40px #ff1a75; }
+  100% { text-shadow: 0 0 5px #ffb6c1,0 0 10px #ff80aa,0 0 15px #ff4d88,0 0 20px #ff1a75; }
+}
